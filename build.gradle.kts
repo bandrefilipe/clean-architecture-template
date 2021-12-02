@@ -1,10 +1,10 @@
 import org.jetbrains.kotlin.gradle.tasks.KotlinCompile
 
 plugins {
-    id("org.springframework.boot") version "2.5.5" apply false
+    id("org.springframework.boot") version "2.6.1" apply false
     id("io.spring.dependency-management") version "1.0.11.RELEASE" apply false
-    id("org.jetbrains.kotlin.jvm") version "1.5.31" apply false
-    id("org.jetbrains.kotlin.plugin.spring") version "1.5.31" apply false
+    id("org.jetbrains.kotlin.jvm") version "1.6.0" apply false
+    id("org.jetbrains.kotlin.plugin.spring") version "1.6.0" apply false
 }
 
 allprojects {
@@ -13,7 +13,7 @@ allprojects {
 
     tasks.withType<KotlinCompile> {
         kotlinOptions {
-            jvmTarget = JavaVersion.VERSION_16.majorVersion
+            jvmTarget = JavaVersion.VERSION_17.majorVersion
             freeCompilerArgs = listOf(
                 "-Xjsr305=strict",
                 "-Xemit-jvm-type-annotations"
@@ -47,7 +47,7 @@ subprojects {
         implementation(kotlin("stdlib-jdk8"))
 
         // Lightweight logging framework for Kotlin.
-        implementation("io.github.microutils:kotlin-logging:2.0.11")
+        implementation("io.github.microutils:kotlin-logging:2.1.0")
 
         // Kotlin Test Support for junit5.
         testImplementation(kotlin("test-junit5"))

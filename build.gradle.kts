@@ -47,7 +47,7 @@ subprojects {
         implementation(kotlin("stdlib-jdk8"))
 
         // Lightweight logging framework for Kotlin.
-        implementation("io.github.microutils:kotlin-logging:2.1.0")
+        implementation("io.github.microutils:kotlin-logging:2.1.16")
 
         // Kotlin Test Support for junit5.
         testImplementation(kotlin("test-junit5"))

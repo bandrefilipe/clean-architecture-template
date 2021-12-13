@@ -24,6 +24,13 @@ dependencies {
 configurations {
     all {
         // Exclude the default logging implementations used by Spring Boot.
-        exclude("org.springframework.boot", "spring-boot-starter-logging")
+        exclude(group = "org.springframework.boot", module = "spring-boot-starter-logging")
+
+        resolutionStrategy.eachDependency {
+            if (requested.group == "org.apache.logging.log4j") {
+                useVersion("2.15.0")
+                because("[CVE-2021-44228] https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2021-44228")
+            }
+        }
     }
 }

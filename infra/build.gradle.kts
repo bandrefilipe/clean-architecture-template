@@ -28,8 +28,14 @@ configurations {
 
         resolutionStrategy.eachDependency {
             if (requested.group == "org.apache.logging.log4j") {
-                useVersion("2.15.0")
-                because("[CVE-2021-44228] https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2021-44228")
+                useVersion("2.17.0")
+                because(
+                    """
+                    |[CVE-2021-45105] https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2021-45105
+                    |Apache Log4j2 versions 2.0-alpha1 through 2.16.0 (excluding 2.12.3) did not protect from uncontrolled recursion from self-referential lookups.
+                    |This allows an attacker with control over Thread Context Map data to cause a denial of service when a crafted string is interpreted.
+                    |This issue was fixed in Log4j 2.17.0 and 2.12.3.
+                    |""".trimMargin())
             }
         }
     }

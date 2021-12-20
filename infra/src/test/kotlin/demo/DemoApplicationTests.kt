@@ -1,11 +1,11 @@
-package com.example
+package demo
 
 import org.springframework.boot.test.context.SpringBootTest
 import kotlin.test.Test
 
 @SpringBootTest
-class ExampleApplicationTest {
+private class DemoApplicationTests {
 
     @Test
-    fun `Spring context loads`() {}
+    fun `Application context loads`() {}
 }
